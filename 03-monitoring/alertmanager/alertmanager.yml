@@ -1,0 +1,15 @@
+---
+receivers:
+  - name: 'default'
+  - name: 'webhook'
+    webhook_configs:
+      - url: 'http://127.0.0.1:8000/alert'
+        send_resolved: true
+
+route:
+  group_by:
+  - alertname
+  group_interval: 5m
+  group_wait: 30s
+  receiver: webhook
+  repeat_interval: 3h

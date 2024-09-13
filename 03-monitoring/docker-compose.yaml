@@ -1,0 +1,78 @@
+version: "3.8"
+services:
+  prometheus:
+    image: quay.io/prometheus/prometheus:v2.29.2
+    container_name: prometheus
+    depends_on:
+      - nodeexporter
+      - cadvisor
+    # volumes:
+    #   - "./prometheus/:/etc/prometheus/"
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.retention.time=1d'
+    ports:
+      - "9090:9090"
+    networks:
+      - popduck
+  grafana:
+    container_name: dashboard
+    image: grafana/grafana:8.1.2
+    volumes:
+      - "./grafana/provisioning/dashboard:/etc/grafana/provisioning/dashboard"
+      - "./grafana/provisioning/datasources:/etc/grafana/provisioning/datasources"
+    ports:
+      - "3000:3000"
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f {IP}:3000/api/health && echo 'ready'"]
+      interval: 10s
+      retries: 30
+    networks:
+      - popduck
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:v0.40.0
+    container_name: cadvisor
+    ports: 
+      - "8080:8080"
+    privileged: true
+    volumes:
+      # - "/c/:/rootfs:ro"
+      - '/var/run/docker.sock:/var/run/docker.sock:ro'
+      - '/:/rootfs:ro'
+      - '/var/run:/var/run:rw'
+      - '/sys:/sys:ro'
+      - '/var/lib/docker/:/var/lib/docker:ro'
+      - '/dev/disk/:/dev/disk:ro'
+    networks: 
+      - popduck
+  nodeexporter:
+    image: quay.io/prometheus/node-exporter:v1.2.2
+    container_name: nodeexporter
+    pid: host
+    ports:
+      - '9100:9100'
+    volumes:
+      - '/proc:/host/proc'
+      - '/sys:/host/sys'
+      - '/:/host:ro,rslave'
+    restart: unless-stopped
+    command:
+      - '--path.procfs=/host/proc'
+      - '--path.sysfs=/host/sys'
+      - '--collector.filesystem.ignored-mount-points="^/(sys|proc|dev|host|etc)($$|/)"'
+    networks:
+      - popduck
+  alertmanager:
+    image: quay.io/prometheus/alertmanager:v0.23.0
+    container_name: alertmanager
+    ports: 
+      - "9093:9093"
+    volumes:
+      - './alertmanager/alertmanager.yml:/etc/alertmanager/alertmanager.yml'
+    command:
+      - '--config.file=/etc/alertmanager/alertmanager.yml'
+      - '--storage.path=/alertmanager'
+    networks:
+      - popduck
+networks:
+  popduck:

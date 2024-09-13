@@ -1,0 +1,45 @@
+2021/08/27 11:41:19 [notice] 1#1: using the "epoll" event method
+2021/08/27 11:41:19 [notice] 1#1: nginx/1.21.1
+2021/08/27 11:41:19 [notice] 1#1: built by gcc 10.3.1 20210424 (Alpine 10.3.1_git20210424) 
+2021/08/27 11:41:19 [notice] 1#1: OS: Linux 5.11.0-31-generic
+2021/08/27 11:41:19 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+2021/08/27 11:41:19 [notice] 1#1: start worker processes
+2021/08/27 11:41:19 [notice] 1#1: start worker process 31
+2021/08/27 11:41:19 [notice] 1#1: start worker process 32
+2021/08/27 11:41:19 [notice] 1#1: start worker process 33
+2021/08/27 11:41:19 [notice] 1#1: start worker process 34
+2021/08/27 11:41:19 [notice] 1#1: start worker process 35
+2021/08/27 11:41:19 [notice] 1#1: start worker process 36
+2021/08/27 11:41:19 [notice] 1#1: start worker process 37
+2021/08/27 11:41:19 [notice] 1#1: start worker process 38
+2021/08/27 11:41:19 [notice] 1#1: start worker process 39
+2021/08/27 11:41:19 [notice] 1#1: start worker process 40
+2021/08/27 11:41:19 [notice] 1#1: start worker process 41
+2021/08/27 11:41:19 [notice] 1#1: start worker process 42
+2021/08/27 11:41:19 [notice] 1#1: start worker process 43
+2021/08/27 11:41:19 [notice] 1#1: start worker process 44
+2021/08/27 11:41:19 [notice] 1#1: start worker process 45
+2021/08/27 11:41:19 [notice] 1#1: start worker process 46
+172.28.0.1 - - [27/Aug/2021:11:41:30 +0000] "GET / HTTP/1.1" 200 612 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" "-"
+2021/08/27 11:41:30 [error] 31#31: *1 open() "/usr/share/nginx/html/favicon.ico" failed (2: No such file or directory), client: 172.28.0.1, server: localhost, request: "GET /favicon.ico HTTP/1.1", host: "localhost:8080", referrer: "http://localhost:8080/"
+172.28.0.1 - - [27/Aug/2021:11:41:30 +0000] "GET /favicon.ico HTTP/1.1" 404 153 "http://localhost:8080/" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" "-"
+2021/08/27 11:41:35 main.go:34: 172.28.0.3:35192 GET /hello
+172.28.0.1 - - [27/Aug/2021:11:41:35 +0000] "GET /hello HTTP/1.1" 200 59 "-" "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:91.0) Gecko/20100101 Firefox/91.0" "-"
+10.88.111.111 - - [11/May/2021:06:33:47 +0000] "GET / HTTP/2.0" 400 471 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 Edg/90.0.818.56"
+10.88.111.111 - - [11/May/2021:06:33:47 +0000] "GET /favicon.ico HTTP/2.0" 400 482 "https://registry.demo.opsta.in.th/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 Edg/90.0.818.56"
+10.88.111.111 - - [11/May/2021:06:33:49 +0000] "GET / HTTP/2.0" 400 471 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 Edg/90.0.818.56"
+10.88.111.111 - - [11/May/2021:06:33:49 +0000] "GET /favicon.ico HTTP/2.0" 400 482 "https://registry.demo.opsta.in.th/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 Edg/90.0.818.56"
+10.88.111.111 - - [11/May/2021:06:33:49 +0000] "GET / HTTP/2.0" 400 471 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 Edg/90.0.818.56"
+10.88.111.111 - - [11/May/2021:06:33:49 +0000] "GET /favicon.ico HTTP/2.0" 400 482 "https://registry.demo.opsta.in.th/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 Edg/90.0.818.56"
+10.88.111.111 - - [11/May/2021:06:33:49 +0000] "GET / HTTP/2.0" 400 471 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 Edg/90.0.818.56"
+10.88.111.111 - - [11/May/2021:06:33:49 +0000] "GET /favicon.ico HTTP/2.0" 400 482 "https://registry.demo.opsta.in.th/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 Edg/90.0.818.56"
+10.88.111.111 - - [11/May/2021:06:33:49 +0000] "GET / HTTP/2.0" 400 471 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 Edg/90.0.818.56"
+10.88.111.111 - - [11/May/2021:06:33:49 +0000] "GET /favicon.ico HTTP/2.0" 400 482 "https://registry.demo.opsta.in.th/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 Edg/90.0.818.56"
+10.88.111.111 - - [11/May/2021:06:33:50 +0000] "GET / HTTP/2.0" 400 471 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 Edg/90.0.818.56"
+10.88.111.111 - - [11/May/2021:06:33:50 +0000] "GET /favicon.ico HTTP/2.0" 400 482 "https://registry.demo.opsta.in.th/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 Edg/90.0.818.56"
+10.88.111.111 - - [11/May/2021:06:36:00 +0000] "GET / HTTP/2.0" 400 471 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 Edg/90.0.818.56"
+10.88.111.111 - - [11/May/2021:06:36:00 +0000] "GET /favicon.ico HTTP/2.0" 400 482 "https://registry.demo.opsta.in.th/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 Edg/90.0.818.56"
+10.88.111.111 - - [11/May/2021:07:09:13 +0000] "GET / HTTP/2.0" 400 471 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 Edg/90.0.818.56"
+10.88.111.111 - - [11/May/2021:07:09:14 +0000] "GET /favicon.ico HTTP/2.0" 400 482 "https://registry.demo.opsta.in.th/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 Edg/90.0.818.56"
+10.88.111.111 - - [11/May/2021:08:54:13 +0000] "GET / HTTP/2.0" 400 471 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 Edg/90.0.818.56"
+10.88.111.111 - - [11/May/2021:08:54:13 +0000] "GET /favicon.ico HTTP/2.0" 400 482 "https://registry.demo.opsta.in.th/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 Edg/90.0.818.56"
