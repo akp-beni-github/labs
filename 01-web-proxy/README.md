@@ -19,3 +19,15 @@ Developer has written the `docker-compose.yaml` file for Nginx but it needs to b
 
 1. Team requires nginx to be possible to change config without update default.conf file. They request to parse parameter from `Global Environment`. So you have to create template config to be used instead of default.conf
 2. Mount access log from nginx to be kept inside host which you can check logs directly from your machine.
+
+
+#### resources 
+```
+https://devopsian.net/p/nginx-config-template-with-environment-vars/
+```
+
+#### cmd
+```
+NGINX_HOST=localhost docker-compose up -d 
+
+```
