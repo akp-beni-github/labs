@@ -21,3 +21,10 @@ There are 6 files in this exam.
 - [ ] dockerfile of hello-2.js
 - [ ] docker-compose.yaml
 - [ ] nginx.conf
+
+
+### network
+```
+https://localhost:8080/hello1 on host machine > http://nginx:80/hello1 > http://hello-1:8000/hello1 on the docker compose network
+https://localhost:8080/hello2 on host machine > http://nginx:80/hello2 > http://hello-2:8000/hello2 on the docker compose network
+``` 

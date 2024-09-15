@@ -1,0 +1,54 @@
+version: '3.8'
+
+services:
+  hello-1:
+    build:
+      context: ./hello1
+    ports:
+      - "3001:8000"
+    networks:
+      - mynetwork
+    healthcheck:
+      test: curl --fail http://localhost:8000/hello1 || exit 1
+      interval: 30s
+      retries: 3
+      start_period: 30s
+      timeout: 10s
+
+  hello-2:
+    build:
+      context: ./hello2
+    ports:
+      - "3002:8000"
+    networks:
+      - mynetwork
+    healthcheck:
+      test: curl --fail http://localhost:8000/hello2 || exit 1
+      interval: 30s
+      retries: 3
+      start_period: 30s
+      timeout: 10s
+
+  nginx:
+    image: nginx:1.21-alpine
+    ports:
+      - "8080:80" 
+    volumes:
+      - ./nginx:/etc/nginx/conf.d/
+    networks:
+      - mynetwork  
+    depends_on: #wait until hello1 and hello2 are healthy, to be running
+      hello-1:
+        condition: service_healthy
+      hello-2:
+        condition: service_healthy
+    healthcheck:
+      test: curl --fail http://localhost:80/ || exit 1
+      interval: 30s
+      retries: 3
+      start_period: 30s
+      timeout: 10s
+
+networks:
+    mynetwork:
+      driver: bridge
