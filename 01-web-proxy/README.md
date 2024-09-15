@@ -28,6 +28,6 @@ https://devopsian.net/p/nginx-config-template-with-environment-vars/
 
 #### cmd
 ```
-NGINX_HOST=localhost docker-compose up -d 
+NGINX_HOST=proxy docker-compose up -d 
 
 ```
