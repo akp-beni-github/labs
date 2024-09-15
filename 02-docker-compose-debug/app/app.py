@@ -8,11 +8,11 @@ app = Flask(__name__)
 
 def favorite_colors() -> List[Dict]:
     config = {
-        'user': os.getenv('CONFIG_DB_USER'),
-        'password': os.getenv('CONFIG_DB_PASS'),
-        'host': os.getenv('CONFIG_DB_HOST'),
-        'port': os.getenv('CONFIG_DB_PORT'),
-        'database': os.getenv('CONFIG_DB_NAME')
+        'user': os.getenv('MYSQL_USER'),
+        'password': os.getenv('MYSQL_PASSWORD'),
+        'host': os.getenv('MYSQL_HOST'),
+        'port': os.getenv('MYSQL_PORT'),
+        'database': os.getenv('MYSQL_DATABASE')
     }
     connection = mysql.connector.connect(**config)
     cursor = connection.cursor()
