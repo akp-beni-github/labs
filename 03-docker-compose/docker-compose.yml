@@ -1,0 +1,14 @@
+version: '3.8'
+services:
+  backend:
+    build: ./backend
+    volumes:
+      - ./data/:/data/ 
+    ports:
+      - "8585:8585"
+  frontend:
+    build: ./frontend
+    ports:
+      - "8080:80"
+
+    

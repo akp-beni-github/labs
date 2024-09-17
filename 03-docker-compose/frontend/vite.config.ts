@@ -5,6 +5,7 @@ import analyzer from 'rollup-plugin-analyzer'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '' ,
   resolve: {
     alias: {
       src: fileURLToPath(new URL('./src', import.meta.url)),
