@@ -3,4 +3,4 @@
 **/terraform.tfstate*
 **/kubernetes-*
 .vscode
-.DS_Store
+**/.DS_Store
