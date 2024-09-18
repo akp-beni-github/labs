@@ -1,0 +1,11 @@
+version: '3.8'
+services:
+
+  httpd-test:
+    image: httpd:alpine 
+    volumes:
+      - ./httpd.conf:/usr/local/apache2/conf/httpd.conf
+    ports:
+      - "8080:2000" 
+
+

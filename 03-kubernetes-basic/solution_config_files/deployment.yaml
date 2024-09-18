@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: httpd-deployment
+  namespace: demo-http
+  labels:
+    app: httpd-alpine
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: httpd-alpine
+  template:
+    metadata:
+      labels:
+        app: httpd-alpine
+    spec:
+      containers:
+      - name: httpd-alpine
+        image: httpd:alpine
+        ports:
+        - containerPort: 55555  # non default port not the port apache listening on(80) but still working the same ??? 
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "250m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
