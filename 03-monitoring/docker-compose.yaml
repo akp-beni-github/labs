@@ -11,6 +11,7 @@ services:
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.retention.time=1d'
+      - '--web.enable-lifecycle'  # enable api management
     ports:
       - "9090:9090"
     networks:
